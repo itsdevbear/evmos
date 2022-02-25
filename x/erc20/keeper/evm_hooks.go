@@ -13,7 +13,7 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	evmtypes "github.com/tharsis/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/solidity"
+	"github.com/tharsis/evmos/contracts"
 	"github.com/tharsis/evmos/x/erc20/types"
 )
 
@@ -44,7 +44,7 @@ func (h Hooks) PostTxProcessing(
 		return sdkerrors.Wrap(types.ErrInternalTokenPair, "EVM Hook is currently disabled")
 	}
 
-	erc20 := solidity.CosmosNativeERC20Contract.ABI
+	erc20 := contracts.CosmosNativeERC20Contract.ABI
 
 	for i, log := range receipt.Logs {
 		if len(log.Topics) < 3 {

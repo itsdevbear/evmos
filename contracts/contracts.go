@@ -1,4 +1,4 @@
-package solidity
+package contracts
 
 import (
 	"bytes"
