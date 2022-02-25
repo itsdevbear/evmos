@@ -1,0 +1,9 @@
+{
+  "extends": "solhint:recommended", 
+  "rules": {
+    "compiler-version": ["error",">=0.8.0"], 
+    "avoid-low-level-calls": "off",
+    "var-name-mixedcase": "off",
+    "event-name-camelcase": "off"
+  }
+}
