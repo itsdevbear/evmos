@@ -69,7 +69,7 @@ func (k Keeper) DeployERC20Contract(
 	coinMetadata banktypes.Metadata,
 ) (common.Address, error) {
 	decimals := uint8(coinMetadata.DenomUnits[0].Exponent)
-	ctorArgs, err := contracts.ERC20MinterBurnerDecimalsContract.ABI.Pack(
+	ctorArgs, err := contracts.CosmosRelayedERC20Contract.ABI.Pack(
 		"",
 		coinMetadata.Name,
 		coinMetadata.Symbol,
@@ -79,9 +79,9 @@ func (k Keeper) DeployERC20Contract(
 		return common.Address{}, sdkerrors.Wrapf(err, "coin metadata is invalid  %s", coinMetadata.Name)
 	}
 
-	data := make([]byte, len(contracts.ERC20MinterBurnerDecimalsContract.Bin)+len(ctorArgs))
-	copy(data[:len(contracts.ERC20MinterBurnerDecimalsContract.Bin)], contracts.ERC20MinterBurnerDecimalsContract.Bin)
-	copy(data[len(contracts.ERC20MinterBurnerDecimalsContract.Bin):], ctorArgs)
+	data := make([]byte, len(contracts.CosmosRelayedERC20Contract.Bin)+len(ctorArgs))
+	copy(data[:len(contracts.CosmosRelayedERC20Contract.Bin)], contracts.CosmosRelayedERC20Contract.Bin)
+	copy(data[len(contracts.CosmosRelayedERC20Contract.Bin):], ctorArgs)
 
 	nonce, err := k.accountKeeper.GetSequence(ctx, types.ModuleAddress.Bytes())
 	if err != nil {

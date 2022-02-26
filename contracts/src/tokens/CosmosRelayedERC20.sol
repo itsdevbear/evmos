@@ -6,7 +6,7 @@ import {ERC20} from "@solmate/tokens/ERC20.sol";
 /**
  * @dev reeeee better on gas than openzepplinnn $er!!!
  */
-contract CosmosNativeERC20Contract is ERC20 {
+contract CosmosRelayedERC20 is ERC20 {
     /*///////////////////////////////////////////////////////////////
                         VALIDATOR ADDRESS STORAGE
     //////////////////////////////////////////////////////////////*/
@@ -32,7 +32,7 @@ contract CosmosNativeERC20Contract is ERC20 {
     function mint(address to, uint256 amount) external {
         require(
             msg.sender == AUTH,
-            "CosmosNativeERC20Contract: must have minter role to mint"
+            "CosmosRelayedERC20: must have minter role to mint"
         );
         _mint(to, amount);
     }
@@ -50,7 +50,7 @@ contract CosmosNativeERC20Contract is ERC20 {
     function burnCoins(address from, uint256 amount) external {
         require(
             msg.sender == AUTH,
-            "CosmosNativeERC20Contract: must have burner role to burn"
+            "CosmosRelayedERC20: must have burner role to burn"
         );
         _burn(from, amount);
     }

@@ -44,7 +44,7 @@ func (h Hooks) PostTxProcessing(
 		return sdkerrors.Wrap(types.ErrInternalTokenPair, "EVM Hook is currently disabled")
 	}
 
-	erc20 := contracts.CosmosNativeERC20Contract.ABI
+	erc20 := contracts.CosmosRelayedERC20Contract.ABI
 
 	for i, log := range receipt.Logs {
 		if len(log.Topics) < 3 {

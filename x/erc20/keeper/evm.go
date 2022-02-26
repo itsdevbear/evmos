@@ -26,7 +26,7 @@ func (k Keeper) QueryERC20(ctx sdk.Context, contract common.Address) (types.ERC2
 		decimalRes types.ERC20Uint8Response
 	)
 
-	erc20 := contracts.CosmosNativeERC20Contract.ABI
+	erc20 := contracts.CosmosRelayedERC20Contract.ABI
 
 	// Name
 	res, err := k.CallEVM(ctx, erc20, types.ModuleAddress, contract, "name")

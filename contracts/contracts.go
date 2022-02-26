@@ -46,9 +46,9 @@ var (
 	CosmosSynapseJson     []byte // nolint: golint
 	CosmosSynapseContract evmtypes.CompiledContract
 
-	//go:embed out/CosmosNativeERC20.sol/CosmosNativeERC20.json
-	CosmosNativeERC20JSON     []byte // nolint: golint
-	CosmosNativeERC20Contract evmtypes.CompiledContract
+	//go:embed out/CosmosRelayedERC20.sol/CosmosRelayedERC20.json
+	CosmosRelayedERC20JSON     []byte // nolint: golint
+	CosmosRelayedERC20Contract evmtypes.CompiledContract
 
 	ERC20ModuleAddress common.Address
 )
@@ -82,8 +82,8 @@ func init() {
 			Bytecode: &CosmosSynapseContract,
 		},
 		{
-			JSON:     &CosmosNativeERC20JSON,
-			Bytecode: &CosmosNativeERC20Contract,
+			JSON:     &CosmosRelayedERC20JSON,
+			Bytecode: &CosmosRelayedERC20Contract,
 		},
 	}
 

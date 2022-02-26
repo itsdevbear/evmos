@@ -397,8 +397,7 @@ func (suite *KeeperTestSuite) TestConvertCoinNativeERC20() {
 			suite.Require().Equal(sdk.NewInt(tc.mint), cosmosBalance.Amount)
 
 			// Precondition: Mint escrow tokens on module account
-			suite.GrantERC20Token(contractAddr, suite.address, types.ModuleAddress, "MINTER_ROLE")
-			suite.MintERC20Token(contractAddr, types.ModuleAddress, types.ModuleAddress, big.NewInt(tc.mint))
+			suite.MintERC20Token(contractAddr, suite.address, types.ModuleAddress, big.NewInt(tc.mint))
 			tokenBalance := suite.BalanceOf(contractAddr, types.ModuleAddress)
 			suite.Require().Equal(big.NewInt(tc.mint), tokenBalance)
 
