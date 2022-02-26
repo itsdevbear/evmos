@@ -1,0 +1,64 @@
+syntax = "proto3";
+package core.synapse;
+
+// this line is used by starport scaffolding # proto/tx/import
+import "cosmos/base/v1beta1/coin.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/evmos/x/synapse/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc BridgeIn(MsgBridgeIn) returns (MsgBridgeInResponse);
+  rpc BridgeOut(MsgBridgeOut) returns (MsgBridgeOutResponse);
+  rpc SetPendingKmsAddress(MsgSetPendingKmsAddress) returns (MsgSetPendingKmsAddressResponse);
+  rpc UpdateKmsAddress(MsgSetKmsAddress) returns (MsgSetKmsAddressResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgBridgeIn {
+  string creator = 1;
+  repeated InBridgeData data = 2;
+}
+
+message InBridgeData {
+  cosmos.base.v1beta1.Coin coin = 2 [(gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];
+  string destAddr = 3;
+  string destEnv = 4;
+}
+
+message MsgBridgeInResponse {
+  string respHash = 1;
+}
+
+message MsgBridgeOut {
+  string creator = 1;
+  repeated OutBridgeData data = 2;
+}
+
+message OutBridgeData {
+  cosmos.base.v1beta1.Coin coin = 2 [(gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];
+  string destAddr = 3;
+  string destChain = 4;
+}
+
+message MsgBridgeOutResponse {
+  string respHash = 1;
+}
+
+message MsgSetPendingKmsAddress {
+  string creator = 1;
+  string pendingKmsAddress = 2;
+}
+
+message MsgSetPendingKmsAddressResponse {
+}
+
+message MsgSetKmsAddress {
+  string creator = 1;
+}
+
+message MsgSetKmsAddressResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

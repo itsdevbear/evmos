@@ -1,0 +1,16 @@
+syntax = "proto3";
+package core.synapse;
+
+import "gogoproto/gogo.proto";
+import "synapse/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/tharsis/evmos/x/synapse/types";
+
+// GenesisState defines the synapse module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  string port_id = 2;
+  repeated string seenKeccaks = 3 [(gogoproto.nullable) = true];
+  // this line is used by starport scaffolding # genesis/proto/state
+}

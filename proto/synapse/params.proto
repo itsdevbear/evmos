@@ -1,0 +1,14 @@
+syntax = "proto3";
+package core.synapse;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/tharsis/evmos/x/synapse/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  string kmsAddress = 1 [(gogoproto.moretags) = "yaml:\"kms_address\""];
+  string kmsPendingAddress = 2 [(gogoproto.moretags) = "yaml:\"kms_pending_address\""];
+  string evmMiddlewareAddress = 3 [(gogoproto.moretags) = "yaml:\"evm_middleware_address\""];
+}
