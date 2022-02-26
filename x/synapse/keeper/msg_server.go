@@ -64,7 +64,7 @@ func (k Keeper) HandleBridgeIn(ctx sdk.Context, msg *types.MsgBridgeIn) error {
 				return err
 			}
 			// Send to Hex Account in the EVM
-			if _, err := k.erc20Keeper.HandleConvertCoin(ctx, &erc20types.MsgConvertCoin{
+			if _, err := k.erc20Keeper.ConvertCoin(sdk.WrapSDKContext(ctx), &erc20types.MsgConvertCoin{
 				Coin:     *element.Coin,
 				Receiver: acc,
 				Sender:   k.accountKeeper.GetModuleAddress(types.ModuleName).String(),

@@ -1,6 +1,8 @@
 package types
 
 import (
+	context "context"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
@@ -9,8 +11,8 @@ import (
 
 type Erc20Keeper interface {
 	// Methods imported from erc20 should be defined here
-	HandleConvertCoin(
-		ctx sdk.Context,
+	ConvertCoin(
+		goCtx context.Context,
 		msg *erc20types.MsgConvertCoin) (*erc20types.MsgConvertCoinResponse, error)
 	GetERC20Map(ctx sdk.Context, erc20 common.Address) []byte
 	GetTokenPair(ctx sdk.Context, id []byte) (erc20types.TokenPair, bool)

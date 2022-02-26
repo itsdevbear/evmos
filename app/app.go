@@ -127,6 +127,10 @@ import (
 	"github.com/tharsis/evmos/x/vesting"
 	vestingkeeper "github.com/tharsis/evmos/x/vesting/keeper"
 	vestingtypes "github.com/tharsis/evmos/x/vesting/types"
+
+	"github.com/tharsis/evmos/x/synapse"
+	synapsekeeper "github.com/tharsis/evmos/x/synapse/keeper"
+	synapsetypes "github.com/tharsis/evmos/x/synapse/types"
 )
 
 func init() {
@@ -187,6 +191,7 @@ var (
 		incentives.AppModuleBasic{},
 		epochs.AppModuleBasic{},
 		claims.AppModuleBasic{},
+		synapse.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -202,6 +207,7 @@ var (
 		erc20types.ModuleName:          {authtypes.Minter, authtypes.Burner},
 		claimstypes.ModuleName:         nil,
 		incentivestypes.ModuleName:     {authtypes.Minter, authtypes.Burner},
+		synapsetypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -267,6 +273,8 @@ type Evmos struct {
 	EpochsKeeper     epochskeeper.Keeper
 	VestingKeeper    vestingkeeper.Keeper
 
+	SynapseKeeper synapsekeeper.Keeper
+
 	// the module manager
 	mm *module.Manager
 
@@ -322,6 +330,7 @@ func NewEvmos(
 		// evmos keys
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
+		synapsetypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -446,6 +455,11 @@ func NewEvmos(
 		app.AccountKeeper, app.BankKeeper, app.EvmKeeper,
 	)
 
+	app.SynapseKeeper = *synapsekeeper.NewKeeper(
+		appCodec, keys[synapsetypes.StoreKey],
+		memKeys[synapsetypes.MemStoreKey], app.GetSubspace(synapsetypes.ModuleName),
+		app.AccountKeeper, app.BankKeeper, app.Erc20Keeper)
+
 	app.IncentivesKeeper = incentiveskeeper.NewKeeper(
 		keys[incentivestypes.StoreKey], appCodec, app.GetSubspace(incentivestypes.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.InflationKeeper, app.StakingKeeper, app.EvmKeeper,
@@ -541,6 +555,7 @@ func NewEvmos(
 		epochs.NewAppModule(appCodec, app.EpochsKeeper),
 		claims.NewAppModule(appCodec, app.ClaimsKeeper),
 		vesting.NewAppModule(app.VestingKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+		synapse.NewAppModule(appCodec, app.SynapseKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -576,6 +591,7 @@ func NewEvmos(
 		erc20types.ModuleName,
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
+		synapsetypes.ModuleName,
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -607,6 +623,7 @@ func NewEvmos(
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
 		incentivestypes.ModuleName,
+		synapsetypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -624,6 +641,7 @@ func NewEvmos(
 		claimstypes.ModuleName,
 		stakingtypes.ModuleName,
 		slashingtypes.ModuleName,
+		synapsetypes.ModuleName,
 		govtypes.ModuleName,
 		ibchost.ModuleName,
 		genutiltypes.ModuleName,
@@ -678,6 +696,7 @@ func NewEvmos(
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		epochs.NewAppModule(appCodec, app.EpochsKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
+		synapse.NewAppModule(appCodec, app.SynapseKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	app.sm.RegisterStoreDecoders()
@@ -952,5 +971,6 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(erc20types.ModuleName)
 	paramsKeeper.Subspace(claimstypes.ModuleName)
 	paramsKeeper.Subspace(incentivestypes.ModuleName)
+	paramsKeeper.Subspace(synapsetypes.ModuleName)
 	return paramsKeeper
 }
