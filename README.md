@@ -2,80 +2,120 @@
 parent:
   order: false
 -->
+<img align="right" width="150" height="150" top="100" src="./assets/readme.jpg">
 
-<div align="center">
-  <h1> Evmos </h1>
-</div>
+# [----------] • [![tests](https://github.com/abigger87/femplate/actions/workflows/tests.yml/badge.svg)](https://github.com/abigger87/femplate/actions/workflows/tests.yml) [![lints](https://github.com/abigger87/femplate/actions/workflows/lints.yml/badge.svg)](https://github.com/abigger87/femplate/actions/workflows/lints.yml) ![GitHub](https://img.shields.io/github/license/abigger87/femplate)  ![GitHub package.json version](https://img.shields.io/github/package-json/v/abigger87/femplate)
 
-<!-- TODO: add banner -->
-<!-- ![banner](docs/ethermint.jpg) -->
 
-<div align="center">
-  <a href="https://github.com/tharsis/evmos/releases/latest">
-    <img alt="Version" src="https://img.shields.io/github/tag/tharsis/evmos.svg" />
-  </a>
-  <a href="https://github.com/tharsis/evmos/blob/main/LICENSE">
-    <img alt="License: Apache-2.0" src="https://img.shields.io/github/license/tharsis/evmos.svg" />
-  </a>
-  <a href="https://pkg.go.dev/github.com/tharsis/evmos">
-    <img alt="GoDoc" src="https://godoc.org/github.com/tharsis/evmos?status.svg" />
-  </a>
-  <a href="https://goreportcard.com/report/github.com/tharsis/evmos">
-    <img alt="Go report card" src="https://goreportcard.com/badge/github.com/tharsis/evmos"/>
-  </a>
-  <a href="https://bestpractices.coreinfrastructure.org/projects/5018">
-    <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/tharsis/evmos">
-  </a>
-</div>
-<div align="center">
-  <a href="https://discord.gg/evmos">
-    <img alt="Discord" src="https://img.shields.io/discord/809048090249134080.svg" />
-  </a>
-  <a href="https://github.com/tharsis/evmos/actions?query=branch%3Amain+workflow%3ALint">
-    <img alt="Lint Status" src="https://github.com/tharsis/evmos/actions/workflows/lint.yml/badge.svg?branch=main" />
-  </a>
-  <a href="https://codecov.io/gh/tharsis/evmos">
-    <img alt="Code Coverage" src="https://codecov.io/gh/tharsis/evmos/branch/main/graph/badge.svg" />
-  </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow Evmos" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
-  </a>
-</div>
+[----------] is a scalable, high-throughput Proof-of-Liquidity blockchain that is fully EVM & IBC compatible.
 
-Evmos is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
-interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/tendermint/tendermint) consensus engine.
-
-**Note**: Requires [Go 1.17.5+](https://golang.org/dl/)
+It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/tendermint/tendermint) consensus engine. **Note**: Requires [Go 1.17.5+](https://golang.org/dl/)
 
 ## Installation
+### For Node Operators
+Install the Node Binary to your system using the provided [setup tool](https://github.com/berachain/osmosis-installer)
 
-For prerequisites and detailed build instructions please read the [Installation](https://evmos.dev/quickstart/installation.html) instructions. Once the dependencies are installed, run:
+### For Developers
+For prerequisites and detailed build instructions please read the [Installation](https://evmos.dev/quickstart/installation.html) instructions. Once the dependencies are installed, build an install a node binary:
 
 ```bash
 make install
 ```
-
 Or check out the latest [release](https://github.com/tharsis/evmos/releases).
 
-## Quick Start
+To compile and run a local node in one command:
+```bash
+./init.sh
+```
 
-To learn how the Evmos works from a high-level perspective, go to the [Introduction](https://evmos.dev/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/quickstart/run_node.html).
+## Code Structure
+
+```ml
+app
+├─ Entrypoint for the Node Software
+cmd
+├─ Setup and management type Daemon commands
+contracts
+├─ lib
+│  └─ ds-test — https://github.com/dapphub/ds-test
+│  └─ forge-std — https://github.com/brockelmore/forge-std
+│  └─ solmate — https://github.com/Rari-Capital/solmate
+├─ compilied_contracts
+│  └─ contracts used for module tests
+├─ out  
+│  └─ ABIs and Bytecoede for Solidity contracts
+├─ src
+│  └─ core contracts
+crypto
+├─ keyring
+│  └─ signing utilities 
+docs
+├─ full node documentation
+ibctesting
+├─ testing utils for IBC related tests
+proto
+├─ amm
+├─ amo
+├─ evmos
+│  └─ claims
+│  └─ epochs
+│  └─ erc20
+│  └─ incentives
+│  └─ inflation
+│  └─ vesting
+├─ synapse
+scripts
+├─ testing + deployment scripts
+testutil
+├─ keeper
+├─ network
+├─ nullify
+├─ sample
+third_party
+├─ proto
+│  └─ cosmos
+│  └─ cosmos_proto
+│  └─ ethermint
+│  └─ gogoproto
+│  └─ vesting
+│  └─ tendermint
+version
+├─ track node binary version
+x
+├─ amm - core berachain automated market maker
+├─ amo - stablecoin automated market operations controller
+├─ claims - claim airdrops at launch
+├─ epochs - epochs for periodic execution of logic
+├─ erc20 - relay tokens between ICS20 and ERC20 formats
+├─ incentives - incentivize user behaviour
+├─ inflation - manage fee token inflation rates
+├─ synapse - native Synapse Protocol integration to brige tokens from other EVM chains
+```
 
 ## Community
 
-The following chat channels and forums are a great spot to ask questions about Evmos:
+The following chat channels and forums are a great spot to ask questions about [----------]:
 
-- [Evmos Twitter](https://twitter.com/EvmosOrg)
-- [Evmos Discord](https://discord.gg/evmos)
-- [Evmos Forum](https://forum.cosmos.network/c/ethermint)
-- [Tharsis Twitter](https://twitter.com/TharsisHQ)
+- [[----------] Twitter](https://twitter.com/EvmosOrg)
+- [[----------] Discord](https://discord.gg/evmos)
+- [[----------] Forum](https://forum.cosmos.network/c/ethermint)
+- [[----------] Twitter](https://twitter.com/TharsisHQ)
 
 ## Contributing
 
-Looking for a good place to start contributing? Check out some [`good first issues`](https://github.com/tharsis/evmos/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
+Looking for a good place to start contributing? Check out some [`good first issues`](https://github.com/[----------]/[----------]/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
 
 For additional instructions, standards and style guides, please refer to the [Contributing](./CONTRIBUTING.md) document.
 
-## Careers
+## Acknowledgements
 
-See our open positions on [Cosmos Jobs](https://jobs.cosmos.network/project/evmos-d0sk1uxuh-remote/), [Notion](https://tharsis.notion.site), or feel free to [reach out](mailto:careers@thars.is) via email.
+- [foundry](https://github.com/gakonst/foundry)
+- [solmate](https://github.com/Rari-Capital/solmate)
+- [forge-std](https://github.com/brockelmore/forge-std)
+- [forge-template](https://github.com/FrankieIsLost/forge-template) by [FrankieIsLost](https://github.com/FrankieIsLost).
+- [Evmos](https://github.com/tharsis/evmos)
+- [Georgios Konstantopoulos](https://github.com/gakonst) for [forge-template](https://github.com/gakonst/forge-template) resource.
+
+## Disclaimer
+
+_These smart contracts and node software are being provided as is. No guarantee, representation or warranty is being made, express or implied, as to the safety or correctness of the user interface or the smart contracts. They have not been audited and as such there can be no assurance they will work as intended, and users may experience delays, failures, errors, omissions, loss of transmitted information or loss of funds. The creators are not liable for any of the foregoing. Users should proceed with caution and use at their own risk._

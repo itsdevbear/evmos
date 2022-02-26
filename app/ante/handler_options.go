@@ -9,10 +9,9 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	channelkeeper "github.com/cosmos/ibc-go/v3/modules/core/04-channel/keeper"
 	ibcante "github.com/cosmos/ibc-go/v3/modules/core/ante"
-
 	ethante "github.com/tharsis/ethermint/app/ante"
 	evmtypes "github.com/tharsis/ethermint/x/evm/types"
-
+	synapseante "github.com/tharsis/evmos/x/synapse/ante"
 	vestingtypes "github.com/tharsis/evmos/x/vesting/types"
 )
 
@@ -22,6 +21,7 @@ type HandlerOptions struct {
 	IBCChannelKeeper channelkeeper.Keeper
 	FeeMarketKeeper  evmtypes.FeeMarketKeeper
 	StakingKeeper    vestingtypes.StakingKeeper
+	SynapseKeeper    synapseante.SynapseKeeper
 	EvmKeeper        ethante.EVMKeeper
 	FeegrantKeeper   ante.FeegrantKeeper
 	SignModeHandler  authsigning.SignModeHandler
@@ -37,6 +37,9 @@ func (options HandlerOptions) Validate() error {
 	}
 	if options.StakingKeeper == nil {
 		return sdkerrors.Wrap(sdkerrors.ErrLogic, "staking keeper is required for AnteHandler")
+	}
+	if options.SynapseKeeper == nil {
+		return sdkerrors.Wrap(sdkerrors.ErrLogic, "synapse keeper is required for AnteHandler")
 	}
 	if options.SignModeHandler == nil {
 		return sdkerrors.Wrap(sdkerrors.ErrLogic, "sign mode handler is required for ante builder")
@@ -69,7 +72,7 @@ func newCosmosAnteHandler(options HandlerOptions) sdk.AnteHandler {
 		ethante.RejectMessagesDecorator{}, // reject MsgEthereumTxs
 		ante.NewSetUpContextDecorator(),
 		ante.NewRejectExtensionOptionsDecorator(),
-		ante.NewMempoolFeeDecorator(),
+		synapseante.NewMempoolFeeDecorator(options.SynapseKeeper),
 		ante.NewValidateBasicDecorator(),
 		ante.NewTxTimeoutHeightDecorator(),
 		ante.NewValidateMemoDecorator(options.AccountKeeper),

@@ -38,7 +38,7 @@ func (suite *KeeperTestSuite) TestBridgeIn() {
 			suite.mintFeeCollector = true
 			suite.SetupTest()
 			tc.malleate()
-			suite.Commit()
+			//suite.Commit()
 			data := make([]*types.InBridgeData, len(tc.coins))
 
 			for i := range tc.coins {

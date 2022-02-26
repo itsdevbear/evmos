@@ -715,6 +715,7 @@ func NewEvmos(
 		BankKeeper:       app.BankKeeper,
 		EvmKeeper:        app.EvmKeeper,
 		StakingKeeper:    app.StakingKeeper,
+		SynapseKeeper:    app.SynapseKeeper,
 		FeegrantKeeper:   app.FeeGrantKeeper,
 		IBCChannelKeeper: app.IBCKeeper.ChannelKeeper,
 		FeeMarketKeeper:  app.FeeMarketKeeper,

@@ -4,7 +4,6 @@ import (
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-
 	"github.com/tharsis/evmos/x/epochs/keeper"
 	"github.com/tharsis/evmos/x/epochs/types"
 )
@@ -18,7 +17,6 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 		if epoch.StartTime.Equal(time.Time{}) || epoch.StartTime.IsZero() {
 			epoch.StartTime = ctx.BlockTime()
 		}
-
 		epoch.CurrentEpochStartHeight = ctx.BlockHeight()
 
 		k.SetEpochInfo(ctx, epoch)
