@@ -1,0 +1,33 @@
+name: Build & Test Solidity Contracts
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      FOUNDRY_VERSION: 3eb54777f489335551a5ddcef170a286e875c601
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cargo
+          key: ${{ runner.os }}-${{ env.FOUNDRY_VERSION }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: --git https://github.com/gakonst/foundry --bin forge --rev ${{env.FOUNDRY_VERSION}} --locked
+      - name: Setup and run tests
+        working-directory: ./contracts
+        run: forge update && forge test
