@@ -22,6 +22,7 @@ type Erc20Keeper interface {
 type AccountKeeper interface {
 	GetAccount(ctx sdk.Context, addr sdk.AccAddress) types.AccountI
 	GetModuleAddress(moduleName string) sdk.AccAddress
+	NewAccountWithAddress(ctx sdk.Context, addr sdk.AccAddress) types.AccountI
 	// Methods imported from account should be defined here
 }
 

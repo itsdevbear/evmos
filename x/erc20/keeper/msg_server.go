@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"context"
+	"fmt"
 	"math/big"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -38,7 +39,7 @@ func (k Keeper) ConvertCoin(
 	// Remove token pair if contract is suicided
 	erc20 := common.HexToAddress(pair.Erc20Address)
 	acc := k.evmKeeper.GetAccountWithoutBalance(ctx, erc20)
-
+	fmt.Println(acc)
 	if acc == nil || !acc.IsContract() {
 		k.DeleteTokenPair(ctx, pair)
 		k.Logger(ctx).Debug(
@@ -48,7 +49,6 @@ func (k Keeper) ConvertCoin(
 		// NOTE: return nil error to persist the changes from the deletion
 		return nil, nil
 	}
-
 	// Check ownership and execute conversion
 	switch {
 	case pair.IsNativeCoin():
@@ -400,6 +400,15 @@ func (k Keeper) convertCoinNativeERC20(
 	)
 
 	return &types.MsgConvertCoinResponse{}, nil
+}
+
+// BalanceOf queries an account's balance for a given ERC20 contract
+func (k Keeper) BalanceOf(
+	ctx sdk.Context,
+	abi abi.ABI,
+	contract, account common.Address,
+) *big.Int {
+	return k.balanceOf(ctx, abi, contract, account)
 }
 
 // balanceOf queries an account's balance for a given ERC20 contract

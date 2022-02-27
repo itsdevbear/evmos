@@ -3,11 +3,11 @@ package keeper
 import (
 	"context"
 	"fmt"
+	ethermint "github.com/tharsis/ethermint/types"
 	"strings"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	ethermint "github.com/tharsis/ethermint/types"
 	erc20types "github.com/tharsis/evmos/x/erc20/types"
 	"github.com/tharsis/evmos/x/synapse/types"
 )
@@ -45,37 +45,48 @@ func (k Keeper) HandleBridgeIn(ctx sdk.Context, msg *types.MsgBridgeIn) error {
 	logger := k.Logger(ctx)
 	// For each Bridge Request
 	for _, element := range msg.Data {
+		var addr sdk.AccAddress
+		addrString := element.DestAddr
+		cfg := sdk.GetConfig()
+		isHex := common.IsHexAddress(addrString)
+		isBech32 := strings.HasPrefix(addrString, cfg.GetBech32AccountAddrPrefix())
+
+		// Get the AccAddress
+		switch {
+		case isHex:
+			addr = common.HexToAddress(addrString).Bytes()
+		case isBech32:
+			addr, _ = sdk.AccAddressFromBech32(addrString)
+		default:
+			return fmt.Errorf("expected a valid hex or bech32 address (acc prefix %s), got '%s'", cfg.GetBech32AccountAddrPrefix(), addrString)
+		}
+
+		// Log Bridge In
 		logger.Info("incoming bridge", "coins", element.Coin.String(), "dest_addr", element.DestAddr, "dest_env", element.DestEnv)
-		// Mint Coins to facilitate
+
+		// Execute the Bridge in
 		k.bankKeeper.MintCoins(ctx, types.ModuleName, []sdk.Coin{*element.Coin})
+
+		// Forward to Correct Env
 		switch element.DestEnv {
 		case EVM:
-			// If Destination is Bech32 convert to Hex
-			acc := element.DestAddr
-			if !common.IsHexAddress(element.DestEnv) {
-				addr, err := sdk.AccAddressFromBech32(element.DestAddr)
-				if err != nil {
-					return err
+			receiver := addrString
+			if !isHex {
+				user := k.accountKeeper.GetAccount(ctx, addr)
+				// Cosmos case will auto handle new account, we need to handle it here
+				if user == nil {
+					user = k.accountKeeper.NewAccountWithAddress(ctx, addr)
 				}
-				acc = k.accountKeeper.GetAccount(ctx, addr).(ethermint.EthAccountI).EthAddress().Hex()
+				receiver = user.(ethermint.EthAccountI).EthAddress().Hex()
 			}
-			// Verify Address
-			if err := ethermint.ValidateAddress(acc); err != nil {
-				return err
-			}
-			// Send to Hex Account in the EVM
 			if _, err := k.erc20Keeper.ConvertCoin(sdk.WrapSDKContext(ctx), &erc20types.MsgConvertCoin{
 				Coin:     *element.Coin,
-				Receiver: acc,
+				Receiver: receiver,
 				Sender:   k.accountKeeper.GetModuleAddress(types.ModuleName).String(),
 			}); err != nil {
 				return err
 			}
 		case COSMOS:
-			addr, err := sdk.AccAddressFromBech32(element.DestAddr)
-			if err != nil {
-				return err
-			}
 			if err := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, addr, []sdk.Coin{*element.Coin}); err != nil {
 				return err
 			}
