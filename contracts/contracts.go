@@ -21,7 +21,6 @@ type Contract struct {
 var AllContracts []Contract
 
 var (
-	// TODO: Fix Forge Issue with Payable
 	// //go:embed out/WBERA.sol/WBERA.json
 	WBERAJson     []byte // nolint: golint
 	WBERAContract evmtypes.CompiledContract
