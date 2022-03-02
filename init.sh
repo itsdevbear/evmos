@@ -95,6 +95,11 @@ validators_supply=$(cat $HOME/.evmosd/config/genesis.json | jq -r '.app_state["b
 total_supply=100000000000000000000010000
 cat $HOME/.evmosd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.evmosd/config/tmp_genesis.json && mv $HOME/.evmosd/config/tmp_genesis.json $HOME/.evmosd/config/genesis.json
 
+# Compile Solidity Contracts
+cd contracts
+forge update
+forge build
+cd ..
 # Sign genesis transaction
 evmosd gentx $KEY 1000000000000000000000aevmos --keyring-backend $KEYRING --chain-id $CHAINID
 

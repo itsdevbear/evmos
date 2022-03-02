@@ -1,8 +1,8 @@
 {
-  "_format": "ethers-rs-sol-cache-1",
+  "_format": "ethers-rs-sol-cache-2",
   "files": {
-    "/home/justinpezzack/core/solidity/lib/solmate/src/tokens/ERC20.sol": {
-      "lastModificationDate": 1645592059732,
+    "/Users/pez/BeraChain/evmos/contracts/lib/solmate/src/tokens/ERC20.sol": {
+      "lastModificationDate": 1646190670323,
       "contentHash": "26eccc653f8bdc8480f9b9e7314ee572",
       "sourceName": "lib/solmate/src/tokens/ERC20.sol",
       "solcConfig": {
@@ -28,15 +28,15 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
+      "versionRequirement": ">=0.8.0",
+      "artifacts": {
+        "ERC20": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "ERC20.sol/ERC20.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/lib/solmate/src/utils/SafeTransferLib.sol": {
-      "lastModificationDate": 1644895589261,
+    "/Users/pez/BeraChain/evmos/contracts/lib/solmate/src/utils/SafeTransferLib.sol": {
+      "lastModificationDate": 1646190670323,
       "contentHash": "2cc53d1764e96429cabc85f1e6743f28",
       "sourceName": "lib/solmate/src/utils/SafeTransferLib.sol",
       "solcConfig": {
@@ -62,17 +62,17 @@
         }
       },
       "imports": [
-        "../tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "SafeTransferLib"
-      ]
+      "versionRequirement": ">=0.8.0",
+      "artifacts": {
+        "SafeTransferLib": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "SafeTransferLib.sol/SafeTransferLib.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/modules/erc20/CosmosERC20Relayer.sol": {
-      "lastModificationDate": 1645123912778,
+    "/Users/pez/BeraChain/evmos/contracts/src/modules/erc20/CosmosERC20Relayer.sol": {
+      "lastModificationDate": 1646190670325,
       "contentHash": "e688feddeb3f70b332b09476ff2adfc5",
       "sourceName": "src/modules/erc20/CosmosERC20Relayer.sol",
       "solcConfig": {
@@ -98,15 +98,15 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosERC20Relayer"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "CosmosERC20Relayer": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "CosmosERC20Relayer.sol/CosmosERC20Relayer.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/modules/gov/CosmosGovernance.sol": {
-      "lastModificationDate": 1645123912778,
+    "/Users/pez/BeraChain/evmos/contracts/src/modules/gov/CosmosGovernance.sol": {
+      "lastModificationDate": 1646190670325,
       "contentHash": "59332ffe5f6edd8b19ff8502604d390c",
       "sourceName": "src/modules/gov/CosmosGovernance.sol",
       "solcConfig": {
@@ -132,15 +132,15 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosGovernance"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "CosmosGovernance": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "CosmosGovernance.sol/CosmosGovernance.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/modules/staking/CosmosStaking.sol": {
-      "lastModificationDate": 1645123912778,
+    "/Users/pez/BeraChain/evmos/contracts/src/modules/staking/CosmosStaking.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "3b19a2af106dd410739f79a1fb7b30bc",
       "sourceName": "src/modules/staking/CosmosStaking.sol",
       "solcConfig": {
@@ -166,15 +166,15 @@
         }
       },
       "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosStaking"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "CosmosStaking": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "CosmosStaking.sol/CosmosStaking.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/modules/synapse/CosmosSynapse.sol": {
-      "lastModificationDate": 1645597344898,
+    "/Users/pez/BeraChain/evmos/contracts/src/modules/synapse/CosmosSynapse.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "48960dcb789491079053e57ad945c6b7",
       "sourceName": "src/modules/synapse/CosmosSynapse.sol",
       "solcConfig": {
@@ -200,18 +200,18 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
+        "lib/solmate/src/tokens/ERC20.sol",
+        "lib/solmate/src/utils/SafeTransferLib.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosSynapse"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "CosmosSynapse": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "CosmosSynapse.sol/CosmosSynapse.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/tokens/ATOM.sol": {
-      "lastModificationDate": 1645597274361,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/ATOM.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "11d57cb2b01439aee6399867aa45aa33",
       "sourceName": "src/tokens/ATOM.sol",
       "solcConfig": {
@@ -237,17 +237,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "ATOM"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "ATOM": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "ATOM.sol/ATOM.json"
+        }
+      }
     },
-    "/home/justinpezzack/core/solidity/src/tokens/BGT.sol": {
-      "lastModificationDate": 1645597275877,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/BGT.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "924c182b3a2527e836c8152b6b32a0f3",
       "sourceName": "src/tokens/BGT.sol",
       "solcConfig": {
@@ -273,479 +273,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "BGT"
-      ]
-    },
-    "/home/justinpezzack/core/solidity/src/tokens/CosmosRelayedERC20Contract.sol": {
-      "lastModificationDate": 1645597278721,
-      "contentHash": "158baeaae32e3b43b70976ba2ef0afa1",
-      "sourceName": "src/tokens/CosmosRelayedERC20Contract.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "BGT": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "BGT.sol/BGT.json"
         }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosRelayedERC20Contract"
-      ]
+      }
     },
-    "/home/justinpezzack/core/solidity/src/tokens/HONEY.sol": {
-      "lastModificationDate": 1645123912782,
-      "contentHash": "b846a1e6570133309ae227649d8d5237",
-      "sourceName": "src/tokens/HONEY.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "HONEY"
-      ]
-    },
-    "/home/justinpezzack/core/solidity/src/tokens/LUNA.sol": {
-      "lastModificationDate": 1645594997522,
-      "contentHash": "d999ba8e7ffa3109e13ae5f971f271f2",
-      "sourceName": "src/tokens/LUNA.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNA"
-      ]
-    },
-    "/home/justinpezzack/core/solidity/src/tokens/LUNAe.sol": {
-      "lastModificationDate": 1645594973893,
-      "contentHash": "1bd959eaf956f49aeb21f6972af4a8e2",
-      "sourceName": "src/tokens/LUNAe.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNAe"
-      ]
-    },
-    "/home/justinpezzack/core/solidity/src/tokens/WBERA.sol": {
-      "lastModificationDate": 1645123912782,
-      "contentHash": "f9a1d033d6c0572066d1b96446b4b903",
-      "sourceName": "src/tokens/WBERA.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "WBERA"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/lib/solmate/src/tokens/ERC20.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "26eccc653f8bdc8480f9b9e7314ee572",
-      "sourceName": "lib/solmate/src/tokens/ERC20.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/lib/solmate/src/utils/SafeTransferLib.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "2cc53d1764e96429cabc85f1e6743f28",
-      "sourceName": "lib/solmate/src/utils/SafeTransferLib.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "../tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "SafeTransferLib"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/modules/erc20/CosmosERC20Relayer.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "e688feddeb3f70b332b09476ff2adfc5",
-      "sourceName": "src/modules/erc20/CosmosERC20Relayer.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosERC20Relayer"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/modules/gov/CosmosGovernance.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "59332ffe5f6edd8b19ff8502604d390c",
-      "sourceName": "src/modules/gov/CosmosGovernance.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosGovernance"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/modules/staking/CosmosStaking.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "3b19a2af106dd410739f79a1fb7b30bc",
-      "sourceName": "src/modules/staking/CosmosStaking.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosStaking"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/modules/synapse/CosmosSynapse.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "48960dcb789491079053e57ad945c6b7",
-      "sourceName": "src/modules/synapse/CosmosSynapse.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosSynapse"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/tokens/ATOM.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "11d57cb2b01439aee6399867aa45aa33",
-      "sourceName": "src/tokens/ATOM.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "ATOM"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/tokens/BGT.sol": {
-      "lastModificationDate": 1645832440372,
-      "contentHash": "924c182b3a2527e836c8152b6b32a0f3",
-      "sourceName": "src/tokens/BGT.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "BGT"
-      ]
-    },
-    "/home/justinpezzack/evmos/contracts/src/tokens/CosmosRelayedERC20.sol": {
-      "lastModificationDate": 1645835790984,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/CosmosRelayedERC20.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "c96c7477d6d148b479121c052d4e9a78",
       "sourceName": "src/tokens/CosmosRelayedERC20.sol",
       "solcConfig": {
@@ -771,17 +309,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosRelayedERC20"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "CosmosRelayedERC20": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "CosmosRelayedERC20.sol/CosmosRelayedERC20.json"
+        }
+      }
     },
-    "/home/justinpezzack/evmos/contracts/src/tokens/HONEY.sol": {
-      "lastModificationDate": 1645832440372,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/HONEY.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "b846a1e6570133309ae227649d8d5237",
       "sourceName": "src/tokens/HONEY.sol",
       "solcConfig": {
@@ -807,17 +345,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "HONEY"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "HONEY": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "HONEY.sol/HONEY.json"
+        }
+      }
     },
-    "/home/justinpezzack/evmos/contracts/src/tokens/LUNA.sol": {
-      "lastModificationDate": 1645832440372,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/LUNA.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "d999ba8e7ffa3109e13ae5f971f271f2",
       "sourceName": "src/tokens/LUNA.sol",
       "solcConfig": {
@@ -843,17 +381,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNA"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "LUNA": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "LUNA.sol/LUNA.json"
+        }
+      }
     },
-    "/home/justinpezzack/evmos/contracts/src/tokens/LUNAe.sol": {
-      "lastModificationDate": 1645832440372,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/LUNAe.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "1bd959eaf956f49aeb21f6972af4a8e2",
       "sourceName": "src/tokens/LUNAe.sol",
       "solcConfig": {
@@ -879,17 +417,17 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol"
+        "lib/solmate/src/tokens/ERC20.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNAe"
-      ]
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "LUNAe": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "LUNAe.sol/LUNAe.json"
+        }
+      }
     },
-    "/home/justinpezzack/evmos/contracts/src/tokens/WBERA.sol": {
-      "lastModificationDate": 1645832440372,
+    "/Users/pez/BeraChain/evmos/contracts/src/tokens/WBERA.sol": {
+      "lastModificationDate": 1646190670326,
       "contentHash": "f9a1d033d6c0572066d1b96446b4b903",
       "sourceName": "src/tokens/WBERA.sol",
       "solcConfig": {
@@ -915,477 +453,15 @@
         }
       },
       "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
+        "lib/solmate/src/tokens/ERC20.sol",
+        "lib/solmate/src/utils/SafeTransferLib.sol"
       ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "WBERA"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/lib/solmate/src/tokens/ERC20.sol": {
-      "lastModificationDate": 1645772284801,
-      "contentHash": "26eccc653f8bdc8480f9b9e7314ee572",
-      "sourceName": "lib/solmate/src/tokens/ERC20.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
+      "versionRequirement": "=0.8.12",
+      "artifacts": {
+        "WBERA": {
+          "0.8.12+commit.f00d7308.Darwin.appleclang": "WBERA.sol/WBERA.json"
         }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "ERC20"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/lib/solmate/src/utils/SafeTransferLib.sol": {
-      "lastModificationDate": 1645772284801,
-      "contentHash": "2cc53d1764e96429cabc85f1e6743f28",
-      "sourceName": "lib/solmate/src/utils/SafeTransferLib.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "../tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "SafeTransferLib"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/modules/erc20/CosmosERC20Relayer.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "e688feddeb3f70b332b09476ff2adfc5",
-      "sourceName": "src/modules/erc20/CosmosERC20Relayer.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosERC20Relayer"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/modules/gov/CosmosGovernance.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "59332ffe5f6edd8b19ff8502604d390c",
-      "sourceName": "src/modules/gov/CosmosGovernance.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosGovernance"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/modules/staking/CosmosStaking.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "3b19a2af106dd410739f79a1fb7b30bc",
-      "sourceName": "src/modules/staking/CosmosStaking.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosStaking"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/modules/synapse/CosmosSynapse.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "48960dcb789491079053e57ad945c6b7",
-      "sourceName": "src/modules/synapse/CosmosSynapse.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosSynapse"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/ATOM.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "11d57cb2b01439aee6399867aa45aa33",
-      "sourceName": "src/tokens/ATOM.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "ATOM"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/BGT.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "924c182b3a2527e836c8152b6b32a0f3",
-      "sourceName": "src/tokens/BGT.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "BGT"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/CosmosRelayedERC20Contract.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "158baeaae32e3b43b70976ba2ef0afa1",
-      "sourceName": "src/tokens/CosmosRelayedERC20Contract.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "CosmosRelayedERC20Contract"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/HONEY.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "b846a1e6570133309ae227649d8d5237",
-      "sourceName": "src/tokens/HONEY.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "HONEY"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/LUNA.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "d999ba8e7ffa3109e13ae5f971f271f2",
-      "sourceName": "src/tokens/LUNA.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNA"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/LUNAe.sol": {
-      "lastModificationDate": 1645772284809,
-      "contentHash": "1bd959eaf956f49aeb21f6972af4a8e2",
-      "sourceName": "src/tokens/LUNAe.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "LUNAe"
-      ]
-    },
-    "/home/justinpezzack/evmos/solidity/src/tokens/WBERA.sol": {
-      "lastModificationDate": 1645772284813,
-      "contentHash": "f9a1d033d6c0572066d1b96446b4b903",
-      "sourceName": "src/tokens/WBERA.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [
-        "@solmate/tokens/ERC20.sol",
-        "@solmate/utils/SafeTransferLib.sol"
-      ],
-      "versionPragmas": [
-        "0.8.12"
-      ],
-      "artifacts": [
-        "WBERA"
-      ]
+      }
     }
   }
 }
